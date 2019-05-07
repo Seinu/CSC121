@@ -1,3 +1,6 @@
+import re
+
+
 class Customer:
 
     def __init__(self, email):
@@ -73,7 +76,7 @@ class Customer:
         Store the valid security code in the instance variable security_code. This method has no parameter 
         (except self) and no return value.
         """
-        correct == False
+        correct = False
         while(correct == False):
             self._security_code = input(
                 "Please enter your 3-digit security code")
