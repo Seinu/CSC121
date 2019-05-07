@@ -19,12 +19,11 @@ class Customer:
         to reenter.  Repeat this until the age is valid.  Store the valid age in the instance variable age. 
         This method has no parameter (except self) and no return value.
         """
-        self._age = int(input("Please enter age"))
-        while(self._age < 0):
+        while(self._age < 1):
             try:
-                self._age = int(input("Please enter age"))
+                self._age = int(input("Please enter age: "))
             except ValueError:
-                print("Invalid input. bill_type must be a number!")
+                print("Invalid input. Age must be an integer!")
             if(self._age < 0):
                 print("Error age can't be negative!")
 
@@ -37,8 +36,10 @@ class Customer:
         This method has no parameter (except self) and no return value.
         """
         correct = False
+
         while(correct == False):
-            self._password = input("Please enter a password")
+            print("Your password must be 8-12 characters long containing at least one upper-case letter, one lower-case letter, and one number.")
+            self._password = input("Please enter a password: ")
             if (len(self._password) < 8 or len(self._password) > 12):
                 print("Error password must be between 8 and 12 characters")
             elif not re.search("[A-Z]", self._password):
@@ -60,7 +61,8 @@ class Customer:
         """
         correct = False
         while(correct == False):
-            self._card_number = input("Please enter your 16-digit card number")
+            self._card_number = input(
+                "Please enter your 16-digit card number: ")
             if(len(self._card_number) != 16):
                 print("Error card number must have 16 digits")
             elif not self._card_number.isdigit():
@@ -79,7 +81,7 @@ class Customer:
         correct = False
         while(correct == False):
             self._security_code = input(
-                "Please enter your 3-digit security code")
+                "Please enter your 3-digit security code: ")
             if(len(self._security_code) != 3):
                 print("Error security code must be exactly 3 digits")
             elif not self._security_code.isdigit():
@@ -94,8 +96,8 @@ class Customer:
         last_name.  Then call the following methods to enter other personal information: input_age, input_password, 
         input_card_number and input_security_code. This method has no parameter (except self) and no return value.
         """
-        self._first_name = input("Please enter your first name")
-        self._last_name = input("Please enter your last name")
+        self._first_name = input("Please enter your first name.\n")
+        self._last_name = input("Please enter your last name.\n")
         self.input_age()
         self.input_password()
         self.input_card_number()
@@ -108,37 +110,39 @@ class Customer:
         call appropriate method to update the chosen item.  Repeat this until the user does not want to make 
         any more changes. This method has no parameter (except self) and no return value.
         """
-        print("First Name: ", self._first_name, "\n",
-              "Last Name: ", self._last_name, "\n",
-              "Age: ", self._age, "\n",
-              "Password: ", self._password, "\n",
-              "Card Number: ", self._card_number, "\n",
-              "Security Code: ", self._security_code, "\n")
         verify = False
         while(verify == False):
-            tmp = input("Would you like to make changes (y/n)").lower()
+            print("Email: ", self._email, "\n",
+                  "First Name: ", self._first_name, "\n",
+                  "Last Name: ", self._last_name, "\n",
+                  "Age: ", self._age, "\n",
+                  "Password: ", self._password, "\n",
+                  "Card Number: ", self._card_number, "\n",
+                  "Security Code: ", self._security_code, "\n")
+            tmp = input("Would you like to make changes (y/n): ").lower()
             if(tmp == "n"):
                 verify = True
                 break
             elif(tmp == "y"):
-                temp = input("Enter F to change first name,\
-                    L to change last name,\
-                    A to change age,\
-                    P to change password,\
-                    C to change card number,\
-                    or S to change security code\n(F/L/A/P/C/S)").uppercase()
+                temp = input("Enter E to change email,\nF to change first name,\nL to change last name,\nA to change age,\nP to change password,\nC to change card number,\nor S to change security code\n(E/F/L/A/P/C/S)").upper()
                 if(temp == "F"):
                     self._first_name = input("Please enter your first name")
                 elif(temp == "L"):
                     self._first_name = input("Please enter your first name")
                 elif(temp == "A"):
+                    self._age = 0
                     self.input_age()
                 elif(temp == "P"):
+                    self._password = ""
                     self.input_password()
                 elif(temp == "C"):
+                    self._card_number = ""
                     self.input_card_number()
                 elif(temp == "S"):
-                    self.input_security_code
+                    self._security_code = ""
+                    self.input_security_code()
+                elif(temp == "E"):
+                    self._email = input("Please enter a email: ")
 
     def output_info(self):
         """
