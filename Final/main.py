@@ -1,12 +1,22 @@
-# 1.	Create two Customer objects.  Since you need to pass email address to the __init__
-#  method when you create a Customer object, ask the user to enter the email address of the customer first.
-# 2.	For each Customer object, call the input_info method to input personal information
-#  and call the verify_info method to verify peronal information.
-# 3.	Write personal information of the two customers to the textfile ‘customers.txt’.
-#  Each customer will occupy one line.  Personal information of each customer must be
-#  written in this order: first_name, last_name, age, email, password, card_number and
-#  security_code. Insert a space after each item except the security_code.  Insert a
-#  newline character, i.e. ‘\n’, at the end of the line.
+# Copyright (C) 2019 Seinu
+#
+# This file is part of CSC121.
+# NOT FOR COLLEGE REUSE
+#
+# CSC121 is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# CSC121 is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with CSC121.  If not, see <http://www.gnu.org/licenses/>.
+#
+# NOT FOR COLLEGE REUSE
 
 from customer import Customer
 
